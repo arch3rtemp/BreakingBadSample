@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BreakingBadSample">
         <activity
+            android:name=".presentation.character.CharacterActivity"
+            android:exported="true" />
+        <activity
             android:name=".presentation.main.MainActivity"
             android:exported="true">
             <intent-filter>

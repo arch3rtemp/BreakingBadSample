@@ -2,6 +2,7 @@ package com.example.breakingbadsample.app
 
 import android.app.Application
 import com.example.breakingbadsample.app.koin_modules.*
+import com.facebook.drawee.backends.pipeline.Fresco
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -20,6 +21,7 @@ class App : Application() {
                 USE_CASES_MODULE
             )
         }
+        Fresco.initialize(this)
     }
 
 }
