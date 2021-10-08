@@ -1,9 +1,6 @@
 package com.example.breakingbadsample.app.koin_modules
 
-import com.example.breakingbadsample.domain.use_cases.CacheCharactersUseCase
-import com.example.breakingbadsample.domain.use_cases.FetchCharactersUseCase
-import com.example.breakingbadsample.domain.use_cases.SaveCharactersUseCase
-import com.example.breakingbadsample.domain.use_cases.SelectCharactersUseCase
+import com.example.breakingbadsample.domain.use_cases.*
 import org.koin.dsl.module
 
 val USE_CASES_MODULE = module {
@@ -18,5 +15,8 @@ val USE_CASES_MODULE = module {
     }
     factory {
         SelectCharactersUseCase(get())
+    }
+    factory {
+        SelectCharacterByIdUseCase(get())
     }
 }

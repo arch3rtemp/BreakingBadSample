@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.breakingbadsample.domain.models.CharacterModel
 import io.reactivex.Flowable
+import io.reactivex.Observable
 
 @Dao
 interface CharactersDao {
@@ -18,5 +19,8 @@ interface CharactersDao {
 
     @Query("SELECT * FROM characters")
     fun selectAll(): Flowable<List<CharacterModel>>
+
+    @Query("SELECT * FROM characters WHERE charId = :id LIMIT 1")
+    fun selectById(id: Int): Flowable<CharacterModel>
 
 }

@@ -23,5 +23,9 @@ class RepositoryImpl(
         return localDataProvider.selectCharacters()
     }
 
+    override fun selectCharacterById(id: Int): Observable<CharacterModel> {
+        return localDataProvider.selectCharacterById(id)
+    }
+
 
 }

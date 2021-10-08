@@ -14,4 +14,8 @@ class LocalDataProviderImpl(private val database: Database) : LocalDataProvider 
     override fun selectCharacters(): Observable<List<CharacterModel>> {
         return database.charactersDao().selectAll().toObservable()
     }
+
+    override fun selectCharacterById(id: Int): Observable<CharacterModel> {
+        return database.charactersDao().selectById(id).toObservable()
+    }
 }

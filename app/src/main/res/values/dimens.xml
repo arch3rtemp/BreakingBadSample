@@ -8,4 +8,6 @@
     <dimen name="font_size_small">10sp</dimen>
     <dimen name="radius_large">15dp</dimen>
     <dimen name="radius_small">10dp</dimen>
+
+    <dimen name="characters_title_size">30sp</dimen>
 </resources>

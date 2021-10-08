@@ -1,30 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cv_item"
-    android:layout_width="170dp"
-    android:layout_height="170dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/shape_white_rounded"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    tools:layout_height="170dp"
+    tools:layout_width="170dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clRoot"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/padding_or_margin_small">
+        android:layout_height="wrap_content">
+
+        <Space
+            android:id="@+id/contentSpace"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            fresco:layout_constraintDimensionRatio="1"
+            fresco:layout_constraintTop_toTopOf="parent" />
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/iv_character"
+            android:id="@+id/ivCharacter"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            fresco:actualImageScaleType="fitCenter"
+            fresco:layout_constraintBottom_toBottomOf="@+id/guideline"
             fresco:layout_constraintEnd_toEndOf="parent"
             fresco:layout_constraintStart_toStartOf="parent"
             fresco:layout_constraintTop_toTopOf="parent"
-            fresco:layout_constraintBottom_toBottomOf="@+id/guideline"
-            fresco:actualImageScaleType="fitCenter"
-            fresco:placeholderImage="@drawable/ic_launcher_foreground"
-             />
+            fresco:placeholderImage="@drawable/ic_launcher_foreground" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -34,25 +43,25 @@
             fresco:layout_constraintGuide_percent="0.6" />
 
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/font_size_medium"
             android:layout_marginTop="@dimen/padding_or_margin_small"
+            android:textSize="@dimen/font_size_medium"
             fresco:layout_constraintEnd_toEndOf="parent"
             fresco:layout_constraintStart_toStartOf="parent"
             fresco:layout_constraintTop_toBottomOf="@+id/guideline"
             tools:text="Name" />
 
         <TextView
-            android:id="@+id/tv_nickname"
+            android:id="@+id/tvNickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/font_size_medium"
             fresco:layout_constraintBottom_toBottomOf="parent"
             fresco:layout_constraintEnd_toEndOf="parent"
             fresco:layout_constraintStart_toStartOf="parent"
-            fresco:layout_constraintTop_toBottomOf="@+id/tv_name"
+            fresco:layout_constraintTop_toBottomOf="@+id/tvName"
             tools:text="Occupation" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

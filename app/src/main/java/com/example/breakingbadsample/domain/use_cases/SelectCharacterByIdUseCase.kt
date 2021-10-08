@@ -5,9 +5,9 @@ import com.example.breakingbadsample.domain.repository.Repository
 import com.example.breakingbadsample.domain.use_cases.base.BaseUseCase
 import io.reactivex.Observable
 
-class SaveCharactersUseCase(private val repository: Repository) :
-    BaseUseCase<List<CharacterModel>, Boolean> {
-    override fun start(arg: List<CharacterModel>?): Observable<Boolean> {
-        return repository.saveCharacters(arg!!)
+class SelectCharacterByIdUseCase(private val repo: Repository) :
+    BaseUseCase<Int, CharacterModel> {
+    override fun start(arg: Int?): Observable<CharacterModel> {
+        return repo.selectCharacterById(arg!!)
     }
 }
