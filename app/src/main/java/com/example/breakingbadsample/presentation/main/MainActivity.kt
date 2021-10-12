@@ -3,12 +3,16 @@ package com.example.breakingbadsample.presentation.main
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.breakingbadsample.app.consts.Keys
 import com.example.breakingbadsample.databinding.ActivityMainBinding
 import com.example.breakingbadsample.domain.models.CharacterModel
 import com.example.breakingbadsample.presentation.character.CharacterDetailsActivity
 import com.example.breakingbadsample.presentation.main.adapter.*
+import com.example.breakingbadsample.presentation.main.adapter.drawers.CharacterItemDrawer
+import com.example.breakingbadsample.presentation.main.adapter.drawers.ItemDrawer
+import com.example.breakingbadsample.presentation.main.adapter.drawers.TitleItemDrawer
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -45,13 +49,19 @@ class MainActivity : AppCompatActivity() {
                     .sortedBy { it.name }
                     .groupBy { it.name.first() }
                     .flatMap { entry ->
-                        mutableListOf<CharacterListItem>()
+                        mutableListOf<ItemDrawer>()
                             .apply {
-                                add(TitleItem(entry.key.toString()))
-                                addAll(entry.value.map { CharacterItem(it) })
+                                add(TitleItemDrawer(entry.key.toString()))
+                                addAll(entry.value.map { CharacterItemDrawer(it) })
                             }
                     }
-                adapter.setCharacters(items)
+                adapter.apply {
+                    itemDrawers.clear()
+                    itemDrawers.addAll(items)
+                    notifyDataSetChanged()
+                }
+
+
             }
         }
     }

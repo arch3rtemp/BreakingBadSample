@@ -1,6 +1,7 @@
 package com.example.breakingbadsample.presentation.main.adapter
 
 import android.net.Uri
+import android.util.SparseArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,53 +11,34 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.breakingbadsample.R
 import com.example.breakingbadsample.domain.models.CharacterModel
+import com.example.breakingbadsample.presentation.main.adapter.drawers.ItemDrawer
 import com.facebook.drawee.view.SimpleDraweeView
 
 class MainRecyclerViewAdapter(private val onClickListener: (CharacterModel) -> Unit) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var characterList: List<CharacterListItem>? = null
+    val itemDrawers = mutableListOf<ItemDrawer>()
+    val sparseArray = SparseArray<ItemDrawer>()
+    override fun getItemViewType(position: Int): Int {
+        val item = itemDrawers[position]
 
-    override fun onCreateViewHolder(parent: ViewGroup, @LayoutRes layoutId: Int):
-            RecyclerView.ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
-        return when (layoutId) {
-            R.layout.item_character -> CharacterViewHolder(itemView)
-            else -> CharacterTitleViewHolder(itemView)
+        val key = item.javaClass.hashCode()
+        if(sparseArray.indexOfKey(key)==-1) {
+            sparseArray.append(key, item)
         }
+        return key
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, key: Int): RecyclerView.ViewHolder {
+        return sparseArray.get(key).createViewHolder(parent)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val model = characterList!![position]
-        when (model) {
-            is CharacterItem -> (holder as CharacterViewHolder).apply {
-                setData(model.characterModel)
-                itemView.setOnClickListener {
-                    onClickListener.invoke(model.characterModel)
-                }
-            }
-            is TitleItem -> {
-                (holder.itemView.layoutParams as StaggeredGridLayoutManager.LayoutParams).isFullSpan = true
-                (holder as CharacterTitleViewHolder).setData(model.title)
-            }
-        }
+        itemDrawers[position].bind(holder)
     }
 
     override fun getItemCount(): Int {
-        return characterList?.size?: 0
-    }
-
-    fun setCharacters(characterList: List<CharacterListItem>) {
-        this.characterList = characterList
-        notifyDataSetChanged()
-    }
-
-    @LayoutRes
-    override fun getItemViewType(position: Int): Int {
-        return when (characterList!![position]) {
-            is CharacterItem -> R.layout.item_character
-            else -> R.layout.item_characters_title
-        }
+        return itemDrawers.size
     }
 
     class CharacterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
