@@ -1,15 +1,15 @@
-package com.example.breakingbadsample.presentation.character
+package com.example.breakingbadsample.presentation.main.character_details
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.breakingbadsample.domain.models.data_models.CharacterDetailsArgModel
 import com.example.breakingbadsample.domain.use_cases.SelectCharacterByIdUseCase
-import com.example.breakingbadsample.presentation.main.MainViewState
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class CharacterDetailsViewModel(
-    private val id: Int,
+    private val arg: CharacterDetailsArgModel,
     private val selectCharacterByIdUseCase: SelectCharacterByIdUseCase
 ) : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
@@ -18,7 +18,7 @@ class CharacterDetailsViewModel(
 
     init {
         compositeDisposable.add(
-            selectCharacterByIdUseCase.start(id)
+            selectCharacterByIdUseCase.start(arg.id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {

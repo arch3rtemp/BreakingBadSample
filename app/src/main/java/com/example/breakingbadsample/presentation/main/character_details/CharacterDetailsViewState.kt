@@ -1,4 +1,4 @@
-package com.example.breakingbadsample.presentation.character
+package com.example.breakingbadsample.presentation.main.character_details
 
 import com.example.breakingbadsample.domain.models.CharacterModel
 

@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "BreakingBadSample"
 include ':app'
+include ':universaladapter'

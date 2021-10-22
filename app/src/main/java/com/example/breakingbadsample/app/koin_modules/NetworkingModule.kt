@@ -1,6 +1,7 @@
 package com.example.breakingbadsample.app.koin_modules
 
 import com.example.breakingbadsample.R
+import com.example.breakingbadsample.app.consts.NodeNames
 import com.example.breakingbadsample.domain.data_providers.global.GlobalDataProvider
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext

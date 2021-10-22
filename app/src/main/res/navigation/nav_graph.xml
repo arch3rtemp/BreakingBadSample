@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/characterFragment">
+
+    <fragment
+        tools:layout="@layout/fragment_characters"
+        android:id="@+id/characterFragment"
+        android:name="com.example.breakingbadsample.presentation.main.characters.CharactersFragment"
+        android:label="CharacterFragment" >
+        <action
+            android:id="@+id/action_characterFragment_to_characterDetailsFragment"
+            app:destination="@id/characterDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterDetailsFragment"
+        android:name="com.example.breakingbadsample.presentation.main.character_details.CharacterDetailsFragment"
+        android:label="CharacterDetailsFragment" >
+        <argument
+            android:name="arg"
+            app:argType="com.example.breakingbadsample.domain.models.data_models.CharacterDetailsArgModel" />
+    </fragment>
+
+
+</navigation>

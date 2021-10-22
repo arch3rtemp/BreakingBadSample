@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -42,27 +44,34 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
 
+    // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
     implementation 'com.google.code.gson:gson:2.8.6'
 
+    // RxJava
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.8.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
 
+    // Koin
     implementation "io.insert-koin:koin-core:3.1.2"
     implementation "io.insert-koin:koin-android:3.1.2"
 
-
+    // Room
     implementation "androidx.room:room-ktx:2.3.0"
-
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt("androidx.room:room-compiler:2.3.0")
-
     kapt "org.xerial:sqlite-jdbc:3.34.0"
-
-    implementation("androidx.room:room-ktx:2.3.0")
-
     implementation "androidx.room:room-rxjava2:2.3.0"
 
+    // Fresco
     implementation 'com.facebook.fresco:fresco:2.5.0'
+
+    // Universal Adapter
+    implementation project(':universaladapter')
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
 }
