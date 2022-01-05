@@ -22,6 +22,9 @@
             android:name="arg"
             app:argType="com.example.breakingbadsample.domain.models.data_models.CharacterDetailsArgModel" />
     </fragment>
+    <action
+        android:id="@+id/action_global_characterDetailsFragment"
+        app:destination="@id/characterDetailsFragment" />
 
 
 </navigation>

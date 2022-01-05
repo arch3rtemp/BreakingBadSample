@@ -1,5 +1,6 @@
 package com.example.breakingbadsample.app.koin_modules
 
+import android.content.Context
 import androidx.room.Room
 import com.example.breakingbadsample.app.db.Database
 import com.example.breakingbadsample.domain.data_providers.local.LocalDataProvider
@@ -16,6 +17,10 @@ val LOCAL_STORAGE_MODULE = module {
     }
 
     single {
-        LocalDataProviderImpl(get())
+        androidContext().getSharedPreferences("key", Context.MODE_PRIVATE)
+    }
+
+    single {
+        LocalDataProviderImpl(get(), get())
     } bind LocalDataProvider::class
 }

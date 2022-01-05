@@ -6,7 +6,7 @@
         <entry key="../../../../../layout/custom_preview.xml" value="0.28072916666666664" />
         <entry key="app/src/main/res/layout/activity_character.xml" value="0.2803442028985507" />
         <entry key="app/src/main/res/layout/activity_character_details.xml" value="0.27309782608695654" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/character_single_item.xml" value="0.2803442028985507" />
         <entry key="app/src/main/res/layout/fragment_character_details.xml" value="0.12917933130699089" />
         <entry key="app/src/main/res/layout/fragment_characters.xml" value="0.1" />

@@ -7,4 +7,5 @@ interface LocalDataProvider {
     fun saveCharacters(arg: List<CharacterModel>): Observable<Boolean>
     fun selectCharacters(): Observable<List<CharacterModel>>
     fun selectCharacterById(id: Int): Observable<CharacterModel>
+    fun saveFcmToken(arg: String): Observable<Boolean>
 }

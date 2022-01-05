@@ -8,4 +8,6 @@ interface Repository {
     fun saveCharacters(arg: List<CharacterModel>): Observable<Boolean>
     fun selectCharacters(): Observable<List<CharacterModel>>
     fun selectCharacterById(id: Int): Observable<CharacterModel>
+    fun updateFcmToken(arg: String): Observable<Boolean>
+    fun saveFcmToken(arg: String): Observable<Boolean>
 }

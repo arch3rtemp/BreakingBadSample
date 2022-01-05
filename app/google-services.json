@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "241396730260",
+    "project_id": "breakingbad-cf63d",
+    "storage_bucket": "breakingbad-cf63d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:241396730260:android:18f0ea619e3fe657372781",
+        "android_client_info": {
+          "package_name": "com.example.breakingbadsample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "241396730260-avui71oq0mtr74ch95r6vl1tenabb25q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2YKLyUCcNKWNBxNFewTA9BnUHTQYMAUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "241396730260-avui71oq0mtr74ch95r6vl1tenabb25q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

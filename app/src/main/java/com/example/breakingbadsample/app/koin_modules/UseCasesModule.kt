@@ -19,4 +19,13 @@ val USE_CASES_MODULE = module {
     factory {
         SelectCharacterByIdUseCase(get())
     }
+    factory {
+        SaveFcmTokenUseCase(get())
+    }
+    factory {
+        UpdateFcmTokenUseCase(get())
+    }
+    factory {
+        SetFcmTokenUseCase(get(), get())
+    }
 }
